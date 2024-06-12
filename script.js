@@ -2,52 +2,29 @@
 
 let firstNumber = 2;
 let secondNumber = 4;
-let operator = "+";
-
-let displayValue = 0;
+let operator = "*";
 
 const numberButtons = document.querySelectorAll(".number-btn");
 const operatorButtons = document.querySelectorAll(".operator-btn");
 const equalButton = document.querySelector(".equal-btn");
 const displayArea = document.querySelector(".result");
 
-numberButtons.forEach((numberBtn) => {
-  numberBtn.addEventListener("click", () => {
-    displayArea.textContent += numberBtn.textContent;
-  });
-});
-
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
-}
-
 function operate(firstNumber, secondNumber, operator) {
   switch (operator) {
     case "+":
-      console.log(add(firstNumber, secondNumber));
+      console.log(firstNumber + secondNumber);
       break;
     case "-":
-      console.log(subtract(firstNumber, secondNumber));
+      console.log(firstNumber - secondNumber);
       break;
     case "*":
-      console.log(multiply(firstNumber, secondNumber));
+      console.log(firstNumber * secondNumber);
       break;
     case "/":
-      console.log(divide(firstNumber, secondNumber));
+      console.log(firstNumber / secondNumber);
       break;
+    default:
+      console.log("Invalid Operation");
   }
 }
-
 operate(firstNumber, secondNumber, operator);
