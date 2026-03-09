@@ -1,5 +1,9 @@
 "use strict";
 
+let firstOperand = 0;
+let secondOperand = 0;
+let operator = "+";
+
 function add(a, b) {
   return a + b;
 }
