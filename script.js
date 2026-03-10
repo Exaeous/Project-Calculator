@@ -41,13 +41,13 @@ const calculateButton = document.querySelector(".calculate");
 let result = document.querySelector(".result");
 
 calculateButton.addEventListener("click", () =>
-  operate(getOperator, getFirstOperands, getSecondOperand),
+  operate(getOperator, getFirstOperand, getSecondOperand),
 );
 
 operandButtons.forEach((operandButton) => {
   operandButton.addEventListener("click", (event) => {
     if (operator === "") {
-      return getFirstOperands(event);
+      return getFirstOperand(event);
     } else if (operator !== "" && firstOperand.length > 0) {
       return getSecondOperand(event);
     }
@@ -58,7 +58,7 @@ operatorButtons.forEach((operatorButton) => {
   operatorButton.addEventListener("click", (event) => getOperator(event));
 });
 
-function getFirstOperands(event) {
+function getFirstOperand(event) {
   firstOperand.push(event.target.textContent);
   result.textContent = parseInt(firstOperand.join(""));
   console.log("First operand", firstOperand);
