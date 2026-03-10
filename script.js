@@ -40,6 +40,8 @@ const calculateButton = document.querySelector(".calculate");
 
 let result = document.querySelector(".result");
 
+clearButton.addEventListener("click", () => clearEverything());
+
 calculateButton.addEventListener("click", () => {
   const numberOne = Number(firstOperand.join(""));
   const numberTwo = Number(secondOperand.join(""));
@@ -87,4 +89,11 @@ function getOperator(event) {
   }
   console.log(operator);
   return operator;
+}
+
+function clearEverything() {
+  firstOperand = [];
+  secondOperand = [];
+  operator = "";
+  result.textContent = "";
 }
