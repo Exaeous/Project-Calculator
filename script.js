@@ -40,22 +40,34 @@ let result = document.querySelector(".result");
 operandButtons.forEach((operandButton) => {
   operandButton.addEventListener("click", (event) => {
     if (operator === "") {
-      firstOperand.push(event.target.textContent);
-      result.textContent = parseInt(firstOperand.join(""));
-      console.log("First operand", firstOperand);
+      return getFirstOperands(event);
     } else if (operator !== "" && firstOperand.length > 0) {
-      secondOperand.push(event.target.textContent);
-      result.textContent = parseInt(secondOperand.join(""));
-      console.log("Second operand", secondOperand);
+      return getSecondOperand(event);
     }
   });
 });
 
 operatorButtons.forEach((operatorButton) => {
-  operatorButton.addEventListener("click", (event) => {
-    if (operator === "") {
-      operator = event.target.textContent;
-      console.log(operator);
-    }
-  });
+  operatorButton.addEventListener("click", (event) => getOperator(event));
 });
+
+function getFirstOperands(event) {
+  firstOperand.push(event.target.textContent);
+  result.textContent = parseInt(firstOperand.join(""));
+
+  return firstOperand;
+}
+
+function getSecondOperand(event) {
+  secondOperand.push(event.target.textContent);
+  result.textContent = parseInt(secondOperand.join(""));
+
+  return secondOperand;
+}
+
+function getOperator(event) {
+  if (operator === "") {
+    operator = event.target.textContent;
+    return operator;
+  }
+}
