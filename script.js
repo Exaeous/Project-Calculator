@@ -62,14 +62,14 @@ function getFirstOperand(event) {
   firstOperand.push(event.target.textContent);
   result.textContent = parseInt(firstOperand.join(""));
   console.log("First operand", firstOperand);
-  return firstOperand.join("");
+  return parseInt(firstOperand.join(""));
 }
 
 function getSecondOperand(event) {
   secondOperand.push(event.target.textContent);
   result.textContent = parseInt(secondOperand.join(""));
   console.log("Second operand", secondOperand);
-  return secondOperand.join("");
+  return parseInt(secondOperand.join(""));
 }
 
 function getOperator(event) {
