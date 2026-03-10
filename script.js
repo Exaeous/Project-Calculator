@@ -35,7 +35,14 @@ function operate(operator, firstOperand, secondOperand) {
 
 const operandButtons = document.querySelectorAll(".operand");
 const operatorButtons = document.querySelectorAll(".operator");
+const clearButton = document.querySelector(".clear");
+const calculateButton = document.querySelector(".calculate");
+
 let result = document.querySelector(".result");
+
+calculateButton.addEventListener("click", () =>
+  operate(getOperator, getFirstOperands, getSecondOperand),
+);
 
 operandButtons.forEach((operandButton) => {
   operandButton.addEventListener("click", (event) => {
@@ -54,20 +61,21 @@ operatorButtons.forEach((operatorButton) => {
 function getFirstOperands(event) {
   firstOperand.push(event.target.textContent);
   result.textContent = parseInt(firstOperand.join(""));
-
-  return firstOperand;
+  console.log("First operand", firstOperand);
+  return firstOperand.join("");
 }
 
 function getSecondOperand(event) {
   secondOperand.push(event.target.textContent);
   result.textContent = parseInt(secondOperand.join(""));
-
-  return secondOperand;
+  console.log("Second operand", secondOperand);
+  return secondOperand.join("");
 }
 
 function getOperator(event) {
   if (operator === "") {
     operator = event.target.textContent;
-    return operator;
   }
+  console.log(operator);
+  return operator;
 }
