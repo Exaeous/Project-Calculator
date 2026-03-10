@@ -40,9 +40,18 @@ const calculateButton = document.querySelector(".calculate");
 
 let result = document.querySelector(".result");
 
-calculateButton.addEventListener("click", () =>
-  operate(getOperator, getFirstOperand, getSecondOperand),
-);
+calculateButton.addEventListener("click", () => {
+  const numberOne = Number(firstOperand.join(""));
+  const numberTwo = Number(secondOperand.join(""));
+
+  const finalResult = operate(operator, numberOne, numberTwo);
+
+  result.textContent = finalResult;
+
+  firstOperand = [finalResult.toString()];
+  secondOperand = [];
+  operator = "";
+});
 
 operandButtons.forEach((operandButton) => {
   operandButton.addEventListener("click", (event) => {
