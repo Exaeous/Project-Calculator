@@ -1,7 +1,7 @@
 "use strict";
 
-let firstOperand = 0;
-let secondOperand = 0;
+let firstOperand = [];
+let secondOperand = [];
 let operator = " ";
 
 function add(a, b) {
@@ -35,11 +35,12 @@ function operate(operator, firstOperand, secondOperand) {
 
 const operandButtons = document.querySelectorAll(".operand");
 const operatorButtons = document.querySelectorAll(".operator");
-const result = document.querySelector(".result");
+let result = document.querySelector(".result");
 
 operandButtons.forEach((operandButton) => {
   operandButton.addEventListener("click", (event) => {
-    firstOperand = event.target.textContent;
+    firstOperand.push(event.target.textContent);
+    result.textContent = parseInt(firstOperand.join(""));
   });
 });
 
