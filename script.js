@@ -32,3 +32,13 @@ function operate(operator, firstOperand, secondOperand) {
       return divide(firstOperand, secondOperand);
   }
 }
+
+let operandButtons = document.querySelectorAll(".operand");
+let result = document.querySelector(".result");
+
+operandButtons.forEach((operandButton) => {
+  operandButton.addEventListener("click", (event) => {
+    result.textContent = event.target.textContent;
+    // firstOperand = event.target.textContent;
+  });
+});
