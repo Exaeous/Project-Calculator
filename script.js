@@ -2,7 +2,7 @@
 
 let firstOperand = [];
 let secondOperand = [];
-let operator = " ";
+let operator = "";
 
 function add(a, b) {
   return a + b;
@@ -39,13 +39,23 @@ let result = document.querySelector(".result");
 
 operandButtons.forEach((operandButton) => {
   operandButton.addEventListener("click", (event) => {
-    firstOperand.push(event.target.textContent);
-    result.textContent = parseInt(firstOperand.join(""));
+    if (operator === "") {
+      firstOperand.push(event.target.textContent);
+      result.textContent = parseInt(firstOperand.join(""));
+      console.log("First operand", firstOperand);
+    } else if (operator !== "" && firstOperand.length > 0) {
+      secondOperand.push(event.target.textContent);
+      result.textContent = parseInt(secondOperand.join(""));
+      console.log("Second operand", secondOperand);
+    }
   });
 });
 
 operatorButtons.forEach((operatorButton) => {
   operatorButton.addEventListener("click", (event) => {
-    operator = event.target.textContent;
+    if (operator === "") {
+      operator = event.target.textContent;
+      console.log(operator);
+    }
   });
 });
