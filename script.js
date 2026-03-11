@@ -48,9 +48,17 @@ calculateButton.addEventListener("click", () => {
 
   const finalResult = operate(operator, numberOne, numberTwo);
 
+  if (
+    firstOperand.length === 0 ||
+    secondOperand.length === 0 ||
+    operator === ""
+  ) {
+    return;
+  }
+
   result.textContent = finalResult;
 
-  firstOperand = [finalResult.toString()];
+  firstOperand = [finalResult];
   secondOperand = [];
   operator = "";
 });
