@@ -86,6 +86,8 @@ function getSecondOperand(event) {
 function getOperator(event) {
   if (operator === "") {
     operator = event.target.textContent;
+  } else if (operator !== "") {
+    operator = event.target.textContent;
   }
   console.log(operator);
   return operator;
