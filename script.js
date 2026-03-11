@@ -41,19 +41,7 @@ const calculateButton = document.querySelector(".calculate");
 
 let result = document.querySelector(".result");
 
-deleteButton.addEventListener("click", () => {
-  if (secondOperand.length > 0) {
-    secondOperand.pop();
-    result.textContent =
-      secondOperand.length > 0 ? secondOperand.join("") : "0";
-  } else if (operator !== "") {
-    operator = "";
-    result.textContent = firstOperand.join("");
-  } else if (firstOperand.length > 0) {
-    firstOperand.pop();
-    result.textContent = firstOperand.length > 0 ? firstOperand.join("") : "0";
-  }
-});
+deleteButton.addEventListener("click", () => deleteLastEntry());
 
 clearButton.addEventListener("click", () => clearEverything());
 
@@ -121,4 +109,18 @@ function clearEverything() {
   secondOperand = [];
   operator = "";
   result.textContent = 0;
+}
+
+function deleteLastEntry() {
+  if (secondOperand.length > 0) {
+    secondOperand.pop();
+    result.textContent =
+      secondOperand.length > 0 ? secondOperand.join("") : "0";
+  } else if (operator !== "") {
+    operator = "";
+    result.textContent = firstOperand.join("");
+  } else if (firstOperand.length > 0) {
+    firstOperand.pop();
+    result.textContent = firstOperand.length > 0 ? firstOperand.join("") : "0";
+  }
 }
