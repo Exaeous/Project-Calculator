@@ -97,5 +97,5 @@ function clearEverything() {
   firstOperand = [];
   secondOperand = [];
   operator = "";
-  result.textContent = "";
+  result.textContent = 0;
 }
