@@ -45,26 +45,7 @@ deleteButton.addEventListener("click", () => deleteLastEntry());
 
 clearButton.addEventListener("click", () => clearEverything());
 
-calculateButton.addEventListener("click", () => {
-  const numberOne = Number(firstOperand.join(""));
-  const numberTwo = Number(secondOperand.join(""));
-
-  const finalResult = operate(operator, numberOne, numberTwo);
-
-  if (
-    firstOperand.length === 0 ||
-    secondOperand.length === 0 ||
-    operator === ""
-  ) {
-    return;
-  }
-
-  result.textContent = finalResult;
-
-  firstOperand = [finalResult];
-  secondOperand = [];
-  operator = "";
-});
+calculateButton.addEventListener("click", () => calculateOperation());
 
 operandButtons.forEach((operandButton) => {
   operandButton.addEventListener("click", (event) => {
@@ -123,4 +104,25 @@ function deleteLastEntry() {
     firstOperand.pop();
     result.textContent = firstOperand.length > 0 ? firstOperand.join("") : "0";
   }
+}
+
+function calculateOperation() {
+  const numberOne = Number(firstOperand.join(""));
+  const numberTwo = Number(secondOperand.join(""));
+
+  const finalResult = operate(operator, numberOne, numberTwo);
+
+  if (
+    firstOperand.length === 0 ||
+    secondOperand.length === 0 ||
+    operator === ""
+  ) {
+    return;
+  }
+
+  result.textContent = finalResult;
+
+  firstOperand = [finalResult];
+  secondOperand = [];
+  operator = "";
 }
